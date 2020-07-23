@@ -1,0 +1,109 @@
+<div *ngIf="userLoggedFlag">
+<!--{{userLoggedFlag}}-->
+
+<button mat-button [matMenuTriggerFor]="aboveMenu">Menu 1</button>
+<!-- #docregion menu-position -->
+<mat-menu #aboveMenu="matMenu" yPosition="above">
+<!-- #enddocregion menu-position -->
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="belowMenu">Menu 2</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="beforeMenu">Menu 3</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+
+<button mat-button [matMenuTriggerFor]="afterMenu">Menu 4</button>
+<mat-menu #afterMenu="matMenu" xPosition="after">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>product title</mat-label>
+        <input matInput placeholder="product title" value="">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>product price</mat-label>
+        <input matInput placeholder="price" value="">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>product category</mat-label>
+        <input matInput placeholder="category" value="">
+      </mat-form-field>
+
+      
+    </form>
+  </mat-sidenav>
+  <mat-sidenav-content>
+     <mat-carousel
+      timings="250ms ease-in"
+      [autoplay]="true"
+      interval="5000"
+      color="accent"
+      maxWidth="auto"
+      proportion="25"
+      slides="5"
+      [loop]="true"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      [useKeyboard]="true"
+      [useMouseWheel]="false"
+      orientation="ltr"
+    >
+      <mat-carousel-slide
+        #matCarouselSlide
+        *ngFor="let slide of slides; let i = index"
+        [image]="slide.image"
+        overlayColor="#00000040"
+        [hideOverlay]="false"
+      ></mat-carousel-slide>
+    </mat-carousel>
+
+    <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-tile>
+        <mat-card>Product 1</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>Product 2</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>Product 3</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>Product 4</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>Product 5</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>Product 6</mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+	<!--<div>
+		<h1>Home</h1>
+		<h3>Total users: # {{users?.length}}</h3>
+	</div>-->
+</div>
+
+
+<!--https://livebook.manning.com/book/angular-development-with-typescript-second-edition/chapter-3/11-->
